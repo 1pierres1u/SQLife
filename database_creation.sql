@@ -157,7 +157,7 @@ CREATE TABLE reading(
 CREATE TABLE company(
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
-	website VARCHAR(300) NOT NULL
+        typ  VARCHAR(100) NOT NULL 
 );
 
 CREATE TABLE job_page(
@@ -168,22 +168,15 @@ CREATE TABLE job_page(
     FOREIGN KEY(fk_company_id) REFERENCES company(id)
 );
 
-CREATE TABLE visit(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	fk_job_page_id INTEGER NOT NULL,
-	dat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	n_jobs INTEGER DEFAULT 0,
-	FOREIGN KEY(fk_job_page_id) REFERENCES job_page(id)
-);
 
 CREATE TABLE application(
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	fk_visit_id INTEGER NOT NULL,
+	fk_job_page_id INTEGER NOT NULL,
 	job_title VARCHAR(40),
         dat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	salary_range VARCHAR(30),
         description VARCHAR(300),
-        FOREIGN KEY (fk_visit_id) REFERENCES visit(id)	
+        FOREIGN KEY (fk_job_page_id) REFERENCES job_page(id)	
 );
 
 CREATE TABLE follow_up(
@@ -242,7 +235,6 @@ CREATE TABLE my_notes LIKE sqlife_1.my_notes;
 CREATE TABLE natural_medicines LIKE sqlife_1.natural_medicines;
 CREATE TABLE company LIKE sqlife_1.company; 
 CREATE TABLE job_page LIKE sqlife_1.job_page;
-CREATE TABLE visit LIKE sqlife_1.visit;
 CREATE TABLE application LIKE sqlife_1.application;
 CREATE TABLE follow_up LIKE sqlife_1.follow_up;
 CREATE TABLE book LIKE sqlife_1.book;
@@ -264,7 +256,6 @@ CREATE TABLE table_tracker_1 LIKE sqlife_1.table_tracker;
 CREATE TABLE my_notes_1 LIKE sqlife_1.my_notes;
 CREATE TABLE natural_medicines_1 LIKE sqlife_1.natural_medicines;
 CREATE TABLE company_1 LIKE sqlife_1.company; 
-CREATE TABLE visit_1 LIKE sqlife_1.visit;
 CREATE TABLE job_page_1 LIKE sqlife_1.job_page;
 CREATE TABLE application_1 LIKE sqlife_1.application;
 CREATE TABLE book_1 LIKE sqlife_1.book;
