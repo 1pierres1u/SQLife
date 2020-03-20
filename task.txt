@@ -1,2 +1,0 @@
-1. create all the tables in the database sqlife_1
-2. add backup tables and databases   
