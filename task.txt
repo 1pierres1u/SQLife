@@ -1,0 +1,2 @@
+1. Create triggers for every operation on the tables. Will help to know when 
+   a backup need to be done
