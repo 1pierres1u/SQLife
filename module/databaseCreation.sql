@@ -1,4 +1,3 @@
-###########
 DROP DATABASE IF EXISTS sqlife_1;
 CREATE DATABASE IF NOT EXISTS sqlife_1;
 USE sqlife_1;
@@ -265,4 +264,3 @@ CREATE TABLE secret_1 LIKE sqlife_1.secret;
 CREATE TABLE mother_father_1 LIKE sqlife_1.mother_father;
 CREATE TABLE marriage_1 LIKE sqlife_1.marriage;
 CREATE TABLE follow_up_1 LIKE sqlife_1.follow_up;
-

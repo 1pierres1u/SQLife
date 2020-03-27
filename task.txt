@@ -1,10 +1,10 @@
 1. Create triggers for every operation on the tables. Will help to know when 
    a backup need to be done
-
+2. create the backup controller. It looks at the table table_tracker to see if modifications 
+   were made then call the backup function.
+3. Create a setup file to create everything about the database
 ===============================================================================
 
-a. create the backup controller. It looks at the table table_tracker to see if modifications 
-   were made then call the backup function.
 
 ==============================================================================
 Security: drop and modify tables: Who can?
