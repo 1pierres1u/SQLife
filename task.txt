@@ -2,10 +2,9 @@
    a backup need to be done
 2. create the backup controller. It looks at the table table_tracker to see if modifications 
    were made then call the backup function.
-3. Create a setup file to create everything about the database
+
 ===============================================================================
-
-
+3. Create users with necessary privileges
 ==============================================================================
 Security: drop and modify tables: Who can?
           encrypt tables   
