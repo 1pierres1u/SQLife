@@ -55,22 +55,41 @@ Weekly event check for new records and backup the database.
   ON SCHEDULE EVERY 1 WEEK 
   DO 
     CALL sqlife_2.backupController();
-
 ```
  
-* FUNCTIONS <br/>
-
+* PROCEDURES <br/>
+Searching procedures and others are built to facilitate retrieving of records.
+```mysql
+  DROP PROCEDURE IF EXISTS sqlife_1.findAddressByName;
+  DELIMITER //
+  CREATE PROCEDURE sqlife_1.findAddressByName(IN FName VARCHAR(200), IN LName VARCHAR(200))
+  BEGIN 
+   SELECT a.*,c.first_name,c.last_name FROM address a RIGHT JOIN contact c ON a.fk_id_contact = c.id where c.first_name = FName and c.last_name=LName; 
+  END //
+  DELIMITER ;
+  GRANT EXECUTE ON PROCEDURE sqlife_1.findAddressByName TO 'user'@'localhost'; 
+```
 
 
 ## Usage
 
+
+
+
+
  
 ## Installation 
-To create the database execute the file setup.sql. Right after a 
-user with the following credentials is created<br/>
+To create the database execute the file 'setup.sql' while being in root mode. 
+Upon installation of the database, a user with the following credentials is created:
  username: user <br/>
  password: 123456789 <br/>
 
 
+
 ## License
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+
+
+
+
 

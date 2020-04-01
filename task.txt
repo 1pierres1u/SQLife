@@ -2,9 +2,9 @@
    a backup need to be done
 2. create the backup controller. It looks at the table table_tracker to see if modifications 
    were made then call the backup function.
-
+3. Create user with necessary privileges
 ===============================================================================
-3. Create users with necessary privileges
+4. procedure: user with no knowledge
 ==============================================================================
 Security: drop and modify tables: Who can?
           encrypt tables   
@@ -13,3 +13,4 @@ Queries: Questions asked by user? write queries.
 Query optimization:
 Functions: for user with no knowledge of MySQl 
 NoSQl version:
+User Guide
