@@ -72,8 +72,15 @@ Searching procedures and others are built to facilitate retrieving of records.
 
 
 ## Usage
-
-
+Once the database is installed, you have the choice to use raw sql or predefined 
+procedures. By example, finding what books were read between two dates, can be done like this 
+```mysql
+   CALL findBookReadFrom('2020-01-01',2020-03-01'); 
+```
+or, with raw sql queries like this 
+```mysql
+   SELECT b.title,r.page_end-r.page_start AS num_page_read,r.dat FROM book b RIGHT JOIN reading r ON b.id=r.fk_id_book WHERE '2020-01-01' < dat and dat < '2020-03-01'; 
+```
 
 
 

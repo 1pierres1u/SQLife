@@ -13,4 +13,4 @@ Queries: Questions asked by user? write queries.
 Query optimization:
 Functions: for user with no knowledge of MySQl 
 NoSQl version:
-User Guide
+User Guide: accessible through sql procedures

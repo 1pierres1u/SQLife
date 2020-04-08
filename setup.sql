@@ -58,18 +58,16 @@ CREATE TABLE food(
 	wher VARCHAR(30),
 	price DECIMAL(10,2),
 	quantity DECIMAL(10,2),
-	description VARCHAR(30)
+	description VARCHAR(300)
 );
 
 CREATE TABLE show_watched(
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	fk_id_user INTEGER NOT NULL,
 	title VARCHAR(50) NOT NULL,
 	genre VARCHAR(30),
 	duration DECIMAL NOT NULL, 
         dat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	description VARCHAR(200),
-	FOREIGN KEY(fk_id_user) REFERENCES users(id)
 );
 ############################################################
 CREATE TABLE person(
@@ -163,36 +161,28 @@ CREATE TABLE company(
         typ  VARCHAR(100) NOT NULL 
 );
 
-CREATE TABLE job_page(
-    id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    fk_company_id INTEGER NOT NULL,
-    url VARCHAR(300),
-    job_title VARCHAR(100),
-    FOREIGN KEY(fk_company_id) REFERENCES company(id)
-);
 
 
 CREATE TABLE application(
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	fk_job_page_id INTEGER NOT NULL,
 	job_title VARCHAR(40),
+	fk_company_id INTEGER NOT NULL,
+	url VARCHAR(300),
+	job_title VARCHAR(100),
+	levels VARCHAR(100),
         dat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	salary_range VARCHAR(30),
         description VARCHAR(300),
-        FOREIGN KEY (fk_job_page_id) REFERENCES job_page(id)	
+        FOREIGN KEY (fk_company_id) REFERENCES company(id)	
 );
+
 
 CREATE TABLE follow_up(
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	fk_application_id INTEGER NOT NULL ,
-	email VARCHAR(300),
 	dat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	phone_interview TIMESTAMP,
-	in_person_interview TIMESTAMP,
-	code_test TIMESTAMP,
-	hired ENUM('TRUE', 'FALSE'), 
-	hiring_date TIMESTAMP,
-	salary VARCHAR(8),
+	category VARCHAR(100),
+	description VARCHAR(200),
 	FOREIGN KEY(fk_application_id) REFERENCES application(id)
 );
 ##############################################################
